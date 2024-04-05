@@ -57,3 +57,15 @@ const objFive ={
 //   ] converting keys and values into separate array elements for every key value pair
 
 // console.log(objFive.hasOwnProperty('bat')); // returns the boolean value based on property availability
+
+// Object destructiong.
+
+const objSix = {
+    id : 1,
+    courseName : 'Cricket'
+}
+// rather than always access the name using objSix.courseName we do object destructuring
+
+const { courseName : cName } = objSix;
+
+console.log(cName);
