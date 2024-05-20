@@ -15,4 +15,4 @@
     console.log(`DB Connected two by ${user}`)
 })('Hitesh');
 
-//here user argument is passed in second () brackets and its used in code of first bracket
+//here user argument is passed in second () brackets and its used in code of first bracket as a variable user
