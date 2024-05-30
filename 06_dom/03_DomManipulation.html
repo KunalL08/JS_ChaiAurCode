@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chai aur code</title>
+</head>
+<body style="background-color: #212121; color: #ffffff;">
+    
+</body>
+<script>
+    const div = document.createElement('div');
+    console.log(div);
+    div.className = 'classOne';
+    div.id = Math.round((Math.random * 10) + 1);
+    div.setAttribute("title", 'generatedTitle');
+    div.style.backgroundColor = 'green';
+    // div.innerHTML = 'New div created'; // this line can be written in other way as below
+
+    const childTextNode = document.createTextNode('New div created');
+    div.appendChild(childTextNode);
+
+    // To get this created element on web page we need to append this child to document
+    document.body.appendChild(div);
+
+</script>
+</html>

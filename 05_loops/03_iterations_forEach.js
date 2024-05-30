@@ -13,13 +13,15 @@ function print(item){
     // console.log(item);
 }
 
-arr.forEach(print); // here as function is already declared no need of extra information also no need to add () at end of the function name as we are not execution it here
+arr.forEach(print); // here as function is already declared no need of extra information also no need to add () at end of the function name as we are not executing it here
 
 // values we can access using forEach
 
 arr.forEach((item, index, arr) => {
     // console.log(item, index, arr);
 });
+
+// we not only get array items but we can get index and complete array as well
 
 const arrLanguages = [
     {

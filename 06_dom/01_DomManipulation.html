@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dom learning</title>
+    <style>
+        .bg-black{
+            background-color: #212121;
+            color: white;
+        }
+    </style>
+</head>
+<body class="bg-black">
+    <div>
+        <h1 id="title" class="heading">DOM learning on Chai aur Code <span style="display: none;">test text</span> </h1>
+        <!-- here when we try to manupulate id title using dom then -->
+        <!-- On logging document.getElementById('title').innerHTML we get "DOM learning on Chai aur Code <span style="display: none;">test text</span>"-->
+        <!-- On logging document.getElementById('title').innerText we get "DOM learning on Chai aur Code" -->
+        <!-- On logging document.getElementById('title').textContent we get "DOM learning on Chai aur Code test text" -->
+        <h2>Lorem, ipsum dolor sit amet consectetur</h2>
+        <h2>Lorem, ipsum dolor sit amet consectetur</h2>
+        <h2>Lorem, ipsum dolor sit amet consectetur</h2>
+        <p>Lorem, ipsum dolor sit amet consectetur.</p>
+
+        <!-- We can access elements using querySelector as well e.g. document.querSelector('tag_name') -->
+        <!-- Using this we can perform various activities on dom elements same as getElementById e.g. adding styles etc-->
+        <!-- We can use document.querySelectorAll('tag_name') to get all the tags from the document -->
+
+        <ul>
+            <li class="list-item">1</li>
+            <li class="list-item">2</li>
+            <li class="list-item">3</li>
+        </ul>
+
+        <!-- documnet.querySelectorAll('li') gives us node list. Node list is not same as array but it has some properties which are similar -->
+        <!-- e.g. const tempNodeL = document.querySelectorAll('li'); -->
+        <!-- tempNodeL.forEach(function (l) {  l.style.backgroundColor = 'green'  })  this will apply background green to all li's-->
+
+        <!-- Same as getelementById & querySelector we can use document.getElementByClassName('class_name') -->
+        <!-- we will get all elements from document of class name. This will return all classes in form of HTMLCollection -->
+        <!-- This HTMLCollection can be converted to Array using Array.from() -->
+        <!-- e.g.   const tempHTEMLColloection = document.getElementsByClassName('list-item')
+                    const tempArray = Array.from(tempHTEMLColloection)
+                    tempArray.forEach(function (li) {
+                        li.style.color= 'orange';
+                    }
+        -->
+    </div>
+</body>
+</html>
