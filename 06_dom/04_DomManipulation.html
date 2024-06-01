@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chai aur code Dom Manipulation</title>
+</head>
+<body style="background-color: #212121; color: #ffffff;">
+    <ul class="language">
+        <li>Javascript</li>
+    </ul>
+</body>
+<script>
+
+    // adding/updaing value
+    function langUpdate(langName){
+        const liItem = document.createElement('li');
+        liItem.innerHTML = `${langName}`;  // here since we used innerHTML we have traversed completed tree of document to it will increase complexity in large project
+        const langParent = document.querySelector('.language');
+        langParent.appendChild(liItem);
+    }
+    langUpdate("Ruby");
+
+    // to eleiminate issue of complexity from above code we can optimise above code as:
+
+    function optimizedLanguageUpdate(languageName){
+        const liItem = document.createElement('li');
+        liItem.appendChild(document.createTextNode(languageName));
+        document.querySelector('.language').appendChild(liItem);
+    }
+    optimizedLanguageUpdate("Golang");
+
+
+    // Editing value
+    const secondLang = document.querySelector('li:nth-child(2)');
+    // secondLang.innerHTML = 'Mojo';  // Non-optimised approach
+    // secondLang.outerHTML = '<li>Mojo</li>'; // Approach using outerHTML
+    const newLi = document.createElement('li');
+    newLi.textContent = 'Mojo';
+    secondLang.replaceWith(newLi);
+
+
+    // Removing element
+    const lastLanguage = document.querySelector('li:last-child');
+    lastLanguage.remove();
+
+
+
+
+</script>
+</html>
