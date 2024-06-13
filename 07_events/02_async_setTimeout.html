@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Chai aur code</h1>
+    <button id="stop">STOP</button>
+</body>
+<script>
+
+    // set-timeout
+    const updateH1 = function() {
+        document.querySelector('h1').innerHTML = 'JS Timeouts';
+
+    }
+    // format for setTimeout => setTimeout(callbackFunction/HandlerFunction, time in Miliseconds)
+
+    const changeH1 = setTimeout(updateH1, 2000);        // here we havent executed updateH1 by adding () but we have jsut passed reference without ()
+
+    // here we are preventing change in H1 by applying clearTimeout.
+    // If stop button clicked before intervel (given as 2 seconds in setTimeout) then execution inside setTimeout will not happen
+    document.getElementById('stop').addEventListener('click', function(e){
+        clearTimeout(changeH1);     // hear we have prevented execution of setTimeout by passing its reference
+        console.log("Stopped");
+    });
+
+</script>
+</html>
