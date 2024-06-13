@@ -7,15 +7,14 @@ let myDate = new Date();
 // console.log("toDateString", myDate.toDateString());
 // console.log("toLocaleString", myDate.toLocaleString());
 
-// let myCreatedDate = new Date(2023, 0, 23);
+// let myCreatedDate = new Date(2023, 0, 23);      // Months in Date object starts from 0 (here date us 23-January)
 // console.log(myCreatedDate);
-//Months in Date object starts from 0
 
 // let myCreatedDate1 = new Date(2023, 0, 14, 5, 3);
 // console.log(myCreatedDate1);
 
-// let myCreatedDate2 = new Date("2023-01-14");
-// console.log(myCreatedDate2);
+// let myCreatedDate2 = new Date("2023-01-14");        // Months in Date object written in string format starts from 1 (here date is 14 -January)
+// console.log(myCreatedDate2.toString());
 
 // let myCreatedDate3 = new Date("01-14-2023");
 // console.log(myCreatedDate3);
@@ -35,14 +34,16 @@ let myDate = new Date();
 // to convert above value in seconds we do
 // console.log("Date now in seconds",  Math.floor(myNewDate/1000));
 
+
+
 // LocaleString method:
 
-let updateDate = new Date();
+// let updateDate = new Date();
 
-let newDate = updateDate.toLocaleDateString('default', {
-    "timeZone" : "IST",
-    "day": "numeric"
-});
+// let newDate = updateDate.toLocaleDateString('default', {
+//     "timeZone" : "IST",
+//     "day": "numeric"
+// });
 
-// Using the LocaleString we can pass multiple options in second parameter to get date as per our expected format
-console.log(newDate);
+// // Using the LocaleString we can pass multiple options in second parameter to get date as per our expected format
+// console.log(newDate);
