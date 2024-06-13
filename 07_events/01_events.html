@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events in JS</title>
+</head>
+    <body style="background-color: #414141; color: aliceblue;">
+        <h2>Amazing image</h2>
+        <div >
+            <ul id="images">
+                <li><img width="200px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="photoshop"></li>
+                <li><img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+                <li><img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+                <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" ></li>
+                <li><img width="200px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+                <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+            </ul>
+       </div>
+    </body>
+    <script>
+        // approach 1
+        // document.getElementById('owl').onclick = function(){     // this is not a proper approach as onclick does not gives us proper information and ability of propagation
+        //     alert('owl');
+        // }
+
+        // approach 2  // proper/best approach
+        // const owl = document.getElementById('owl');
+        // owl.addEventListener('click', function(){      // here addEventListener is having third argument as well but by default its false hence no need to add that
+        //     alert('owl clicked');
+        // })
+
+        // bubbling and propagation understanding
+
+        // bubbling - when triggered events start executing from child to parent is creates the bubble that is called event bubbling
+
+        //below is event listner for ul which is parent element of owl
+        // document.getElementById('images').addEventListener('click', function(e){
+        //     console.log("From images ul item");  // printed after owl console line 41
+        // }, false);     // false is default 3rd argument for the addEventListner, no need to mention explicitly
+
+        // document.getElementById('owl').addEventListener('click', function(e){
+        //     console.log("From owl li element"); // printed before images console line 37
+        // }, false);    // false is default 3rd argument for the addEventListner, no need to mention explicitly
+
+        // In above scenario we have observed bubbling is happend of events. We got first console from event of 'owl' and then from 'images'.
+
+        
+
+        // To avoid bubbling of events we can use 'true' as third argument of addEventListner
+        
+        // document.getElementById('images').addEventListener('click', function(e){
+        //     console.log("From images ul item");
+        // }, true);
+
+        // document.getElementById('owl').addEventListener('click', function(e){
+        //     console.log("From owl li element");
+        // }, true);
+
+        // In above scenario we got console from images first and then got from owl. Hence by using 'true' as third argument we prevented event bubbling
+
+
+        // How to avoid bubbling
+        // document.getElementById('images').addEventListener('click', function(e) {
+        //     console.log("From images ul item");  // printed after owl console line 41
+        // }, false);     // false is default 3rd argument for the addEventListner, no need to mention explicitly
+
+        // document.getElementById('owl').addEventListener('click', function(e) {
+        //     console.log("From owl li element"); // printed before images console line 37
+        //     e.stopPropagation();
+        // }, false);
+        // In above scenario since e.stopPropagation() is used after console of owl element we didnt see bubling happning though third argumant is false.
+        // After using e.stopPropagation() next events doesn't execute.
+
+        // prevent default
+        // document.getElementById('google').addEventListener('click', function(e){
+        //     e.preventDefault();
+        //     console.log('Google clicked');
+        // });
+
+
+        // deleting li items upon clicking image excluding link
+
+        // document.querySelector('#images').addEventListener('click', function(e){
+        //     // console.log(e.target.tagName);
+
+        //     if(e.target.tagName === 'IMG'){
+        //         e.target.parentNode.remove();  //   We have removed parentNode cause if we only remove only image still html code of li will be present in there
+        //     }
+        // });
+
+
+    </script>
+</html>
