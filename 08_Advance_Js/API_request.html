@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Request & Response</title>
+</head>
+<body>
+</body>
+<script>
+    let parsedData, data;
+    let url = 'https://api.github.com/users/hiteshchoudhary';
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', url);
+    xhr.onreadystatechange = function(){            // This tracks change in state
+        console.log(xhr.readyState);                // readyState gives us current state of the request based on working of API & response
+        if(xhr.readyState === 4){
+            // console.log(this.responseText);     // we have used the word 'this' to represent the current context of the request.
+            data = this.responseText;
+            // console.log(data.followers);        // we get undefined here as data is of type string. Data coming from URL is mostly in string format
+            parsedData = JSON.parse(data);         // we converted data from string to JSON.
+            console.log(parsedData);
+            console.log(parsedData.followers);
+            showImage();                           // This method need to be called here (i.e. before xhr.send())
+        }
+    }
+
+    xhr.send();
+
+    function showImage(){
+        const imageAndFollowers = document.createElement('div');
+        imageAndFollowers.style.cssText = 'height:200px;width:200px;border:1px solid;justify-content:center;';
+
+        console.log(parsedData);
+        let img = document.createElement('img');
+        img.src = parsedData.avatar_url;
+        img.style.cssText = 'height:120px;width:120.5px';
+
+        let followers = document.createElement('p');
+        followers.textContent = parsedData.followers;
+
+        let buttonToGitProfile = document.createElement('button');
+        buttonToGitProfile.textContent = 'Click';
+        buttonToGitProfile.addEventListener('click', function(){
+            window.location.replace(url);
+        });
+
+        imageAndFollowers.appendChild(img);
+        imageAndFollowers.appendChild(followers);
+        imageAndFollowers.appendChild(buttonToGitProfile);
+
+        document.body.appendChild(imageAndFollowers);
+    }
+
+</script>
+</html>
